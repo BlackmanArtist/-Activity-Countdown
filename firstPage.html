@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Welcome to Time-Countdown world!</title>
+    <style type="text/css">
+        #body{
+            background-color: lightpink;
+        }
+        #all{
+            position: relative;
+            height: 200px;
+            width: 500px;
+            margin: 100px auto;
+            border: 1px solid #000;
+            padding: 7px;
+            text-align: center;
+        }
+        #title{
+            height: 40px;
+            width: 500px;
+            background-color: lightgray;
+        }
+        #title span{
+            font-family: 黑体;
+            font-size: 30px;
+            color: orange;
+        }
+        #button{
+            height: 30px;
+            width: 70px;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="all">
+        <div id="screen">
+            <div id="title">
+                <span>欢迎来到BlackmanArtist的时间倒计时器</span>
+            </div>
+            <div id="startTime">
+                <span class="word">请输入活动开始的时间：</span>
+                <input id="startT" type="text"/>
+                <span class="word">(若无可空)</span>
+                <br/>
+                <span class="word">(注：格式：年-月-日 小时：分：秒)</span>
+            </div>
+            <br/>
+            <div id="endTime">
+                <span class="word">请输入活动结束的时间：</span>
+                <input id="endT" type="text"/>
+                <span class="word">(若无可空)</span>
+                <br/>
+                <span class="word">(注：格式：年-月-日 小时：分：秒)</span>
+                <br/>
+                <br/>
+                <input type="button" id="button" onclick="GO()" value="提交"/>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+    function GO(){
+        let startT = document.getElementById("startT").value,
+                endT = document.getElementById("endT").value;
+        let s = new Date(startT).getTime();
+        let e = new Date(endT).getTime();
+        if(s <= e){
+            let url = "file:///F:/graduate/myPrograms/countDown/countDown-2.html?startT=" + startT +"&endT=" + endT;
+            window.open(url);
+        }
+        else{
+            alert("输入的活动开始时间应早于结束时间！");
+        }
+    }
+</script>
+</html>
